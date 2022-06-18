@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { Key, useState } from 'react'
 import './App.css'
+import cross from './cross.svg'
 
 function App() {
   const [isHeads, setIsHeads] = useState(true)
-  const [tossedAttemptKey, setTossedAttemptKey] = useState<String>("")
+  const [tossedAttemptKey, setTossedAttemptKey] = useState<Key>("")
 
 
   const handleFlip = () => {
@@ -18,15 +19,16 @@ function App() {
     <div className="App">
       <div>
         <h2>Armin's Coin</h2>
-        <p>May the Coin be our judge and decide between us</p>
+        <p>May the Coin decide the best for us</p>
       </div>
       <div
         key={tossedAttemptKey}
-        id="coin" className={isHeads ? "heads" : "tails"}
+        id="coin"
+        className={`${isHeads ? "heads" : "tails"} ${tossedAttemptKey === "" ? "not-started" : ""}`}
         onClick={handleFlip}
       >
-        <div className="side-a"></div>
-        <div className="side-b"></div>
+        <div className={`coin-circle side-a`}></div>
+        <div className={`coin-circle side-b`}></div>
       </div>
       <div className='legend'>
         <div className='legend-side'>
