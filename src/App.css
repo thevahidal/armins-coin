@@ -38,9 +38,6 @@ p {
   align-items: center;
   justify-content: center;
 }
-.not-started.coin-circle {
-  animation: 3s ease 0s infinite beat;
-}
 .not-started .coin-circle {
   background-color: #555555 !important;
 }
@@ -84,10 +81,7 @@ p {
 
 }
 #coin.not-started {
-  -webkit-animation: unset !important;
-  -moz-animation: unset !important;
-  -o-animation: unset !important;
-  animation: unset !important;
+  animation: 3s ease 0s infinite beat !important;
 }
 #coin.heads {
   -webkit-animation: flipHeads 3s ease-out forwards;
