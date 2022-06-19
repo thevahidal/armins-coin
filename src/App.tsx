@@ -1,6 +1,9 @@
 import { Key, useEffect, useState } from 'react'
+import * as Panelbear from "@panelbear/panelbear-js";
+
 import './App.css'
 import cross from './cross.svg'
+
 
 function App() {
   const [isHeads, setIsHeads] = useState(true)
@@ -11,7 +14,12 @@ function App() {
 
   let updateCountsTimeout: any = null
   const handleFlip = () => {
-    if (isFlipping) return
+    if (isFlipping) {
+      Panelbear.track("coin_flip_declined");
+      return
+    }
+
+    Panelbear.track("coin_flip");
 
     const randomNumber = Math.random()
     const _isHeads = randomNumber >= 0.5
@@ -27,6 +35,8 @@ function App() {
   }
 
   useEffect(() => {
+    Panelbear.trackPageview();
+
     return () => {
       clearTimeout(updateCountsTimeout)
     }
