@@ -1,19 +1,36 @@
-import { Key, useState } from 'react'
+import { Key, useEffect, useState } from 'react'
 import './App.css'
 import cross from './cross.svg'
 
 function App() {
   const [isHeads, setIsHeads] = useState(true)
   const [tossedAttemptKey, setTossedAttemptKey] = useState<Key>("")
+  const [headsCount, setHeadsCount] = useState<number>(0)
+  const [totalCount, setTotalCount] = useState<number>(0)
+  const [isFlipping, setIsFlipping] = useState<boolean>(false)
 
-
+  let updateCountsTimeout: any = null
   const handleFlip = () => {
+    if (isFlipping) return
+
     const randomNumber = Math.random()
     const _isHeads = randomNumber >= 0.5
     setIsHeads(_isHeads)
     setTossedAttemptKey(new Date().toISOString())
+    setIsFlipping(true)
+
+    updateCountsTimeout = setTimeout(() => {
+      setTotalCount(count => count + 1)
+      setHeadsCount(count => _isHeads ? count + 1 : count)
+      setIsFlipping(false)
+  }, 3000)
   }
 
+  useEffect(() => {
+    return () => {
+      clearTimeout(updateCountsTimeout)
+    }
+  }, [])
 
   return (
     <div className="App">
@@ -39,6 +56,11 @@ function App() {
           <div className="legend-circle side-b"></div>
           <div className='legend-title'>Tails</div>
         </div>
+      </div>
+      <div className='counter'>
+        <span className='heads side-a'>{headsCount}</span>
+        <span className='slash'>/</span>
+        <span className='total'>{totalCount}</span>
       </div>
     </div>
   )
