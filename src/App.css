@@ -45,6 +45,7 @@ p {
 }
 .side-a {
   background-color: #ce0000;
+  color: #ce0000;
 }
 .side-b {
   background-color: #0082ce;
@@ -96,6 +97,22 @@ p {
   -moz-animation: flipTails 3s ease-out forwards;
     -o-animation: flipTails 3s ease-out forwards;
        animation: flipTails 3s ease-out forwards;
+}
+.counter {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #999;
+}
+.counter .heads {
+  background: none !important;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.counter .slash {
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+.counter .total {
 }
 
 @-webkit-keyframes flipHeads {
