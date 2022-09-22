@@ -72,6 +72,9 @@ function App() {
         <span className='slash'>/</span>
         <span className='total'>{totalCount}</span>
       </div>
+      <div className='footer'>
+        <p>Pro Tip: If the first flip is not what you wanted, go for 3 out of 5 flips, 6 out of 10, or go really crazy about it.</p>
+      </div>
     </div>
   )
 }
