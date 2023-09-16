@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <div>
         <h2>Armin's Coin</h2>
-        <p>May the Coin decide the best for us</p>
+        <p>Let the Coin decide what's best for us!</p>
       </div>
       <div
         key={tossedAttemptKey}
@@ -73,7 +73,7 @@ function App() {
         <span className='total'>{totalCount}</span>
       </div>
       <div className='footer'>
-        <p>Pro Tip: If the first flip is not what you wanted, go for 3 out of 5 flips, 6 out of 10, or go really crazy about it.</p>
+        <p><strong>Pro Tip:</strong> Didn't get the result you wanted on the first flip? Try increasing your chances by going for 3 out of 5 flips, 6 out of 10, or go all out and get really crazy with it!</p>
       </div>
     </div>
   )
